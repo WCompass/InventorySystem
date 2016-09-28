@@ -1,5 +1,4 @@
 ﻿using DataObjects;
-using System;
 using System.Collections.Generic;
 
 namespace IDataAccess
@@ -20,13 +19,6 @@ namespace IDataAccess
         IList<DeviceObject> GetDeviceList(int statusCode);
 
         /// <summary>
-        /// 获得列表创建时间
-        /// </summary>
-        /// <param name="CreatedTime"></param>
-        /// <returns></returns>
-        IList<DeviceObject> GetDeviceListCreatedTime(DateTime CreatedTime);//何蕴.名字
-
-        /// <summary>
         /// 获得数据总数
         /// </summary>
         /// <returns></returns>
@@ -38,6 +30,5 @@ namespace IDataAccess
         /// <param name="statusCode"></param>
         /// <returns></returns>
         int GetCount(int statusCode);
-
     }
 }
