@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace IDataAccess
 {
-    interface IRoleAccess : IBaseAccess<RoleObject>
+    public interface IRoleAccess : IBaseAccess<RoleObject>
     {
         /// <summary>
         /// 获得列表

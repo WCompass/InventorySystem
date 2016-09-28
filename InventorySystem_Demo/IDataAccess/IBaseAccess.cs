@@ -1,7 +1,7 @@
 ﻿
 namespace IDataAccess
 {
-    interface IBaseAccess<T> where T : DataObjects.BaseDataObject, new()
+    public interface IBaseAccess<T> where T : DataObjects.BaseDataObject, new()
     {
         bool Create(T model);
         bool Update(T model);

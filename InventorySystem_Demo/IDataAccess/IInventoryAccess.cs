@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace IDataAccess
 {
-    interface IInventoryAccess : IBaseAccess<InventoryObject>
+    public interface IInventoryAccess : IBaseAccess<InventoryObject>
     {
 
         /// <summary>

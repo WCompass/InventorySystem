@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace IDataAccess
 {
-    interface ICategoryAccess : IBaseAccess<CategoryObject>
+    public interface ICategoryAccess : IBaseAccess<CategoryObject>
     {
         /// <summary>
         /// 获得列表
