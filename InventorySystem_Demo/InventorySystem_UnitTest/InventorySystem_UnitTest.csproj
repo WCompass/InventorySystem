@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserAccessTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

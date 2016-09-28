@@ -1,4 +1,5 @@
 ﻿using DataObjects;
+using System;
 using System.Collections.Generic;
 
 namespace IDataAccess
@@ -17,6 +18,14 @@ namespace IDataAccess
         /// <param name="statusCode">状态码</param>
         /// <returns></returns>
         IList<DeliveryObject> GetDeliveryList(int statusCode);
+
+        /// <summary>
+        /// 根据指定时间范围获得的列表
+        /// </summary>
+        /// <param name="startTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns></returns>
+        IList<DeliveryObject> GetDeliveryListByTimeRange(DateTime startTime, DateTime endTime);
 
         /// <summary>
         /// 获得数据总数
