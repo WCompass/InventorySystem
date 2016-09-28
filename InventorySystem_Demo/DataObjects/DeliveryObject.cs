@@ -25,6 +25,7 @@ namespace DataObjects
         /// </summary>
         public int Count { get; set; }
 
+        public int AreaId { get; set; }
         /// <summary>
         /// 操作人
         /// </summary>
@@ -36,6 +37,7 @@ namespace DataObjects
         public DateTime OperatedTime { get; set; }
 
         /* Join */
+        public string AreaIdName { get; set; }
         public string ItemIdName { get; set; }
         public string OperatedTimeName { get; set; }
     }
