@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7AEBFA94-73BE-48BB-B9B9-A8CEFFCDE8F1}</ProjectGuid>
+    <ProjectGuid>{68B47C22-4188-45A3-8971-3C6F54B16002}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataObjects</RootNamespace>
-    <AssemblyName>DataObjects</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>InventorySystem_UnitTest</RootNamespace>
+    <AssemblyName>InventorySystem_UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,17 +42,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaObject.cs" />
-    <Compile Include="BaseDataObject.cs" />
-    <Compile Include="CategoryObject.cs" />
-    <Compile Include="DeliveryObject.cs" />
-    <Compile Include="DeviceObject.cs" />
-    <Compile Include="InventoryObject.cs" />
-    <Compile Include="ItemObject.cs" />
+    <Compile Include="BaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoleObject.cs" />
-    <Compile Include="StorageObject.cs" />
-    <Compile Include="UserObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataObjects\DataObjects.csproj">
+      <Project>{7aebfa94-73be-48bb-b9b9-a8ceffcde8f1}</Project>
+      <Name>DataObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FactoryDataAccess\FactoryDataAccess.csproj">
+      <Project>{74e97188-fbf4-4b26-a2f6-e12d26f44792}</Project>
+      <Name>FactoryDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDataAccess\IDataAccess.csproj">
+      <Project>{f5ccf4df-09a8-46be-a48f-d65f97635a6a}</Project>
+      <Name>IDataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
