@@ -19,13 +19,6 @@ namespace IDataAccess
         IList<UserObject> GetUserList(int statusCode);
 
         /// <summary>
-        /// 获取对应的区域
-        /// </summary>
-        /// <param name="AreaId">区域码</param>
-        /// <returns></returns>
-        IList<UserObject> AreaIdList(int AreaId);
-
-        /// <summary>
         /// 获得数据总数
         /// </summary>
         /// <returns></returns>
