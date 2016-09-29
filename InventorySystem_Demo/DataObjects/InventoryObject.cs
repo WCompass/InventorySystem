@@ -21,6 +21,11 @@ namespace DataObjects
         public int AreaId { get; set; }
 
         /// <summary>
+        /// 对应库存
+        /// </summary>
+        public int InventoryId { get; set; }
+
+        /// <summary>
         /// 物品ID
         /// </summary>
         public int ItemId { get; set; }
@@ -29,6 +34,12 @@ namespace DataObjects
         /// 库存数量
         /// </summary>
         public int Count { get; set; }
+
+        /// <summary>
+        /// 物品价格
+        /// </summary>
+        public float Price { get; set; }
+
         /// <summary>
         /// 最后修改时间
         /// </summary>

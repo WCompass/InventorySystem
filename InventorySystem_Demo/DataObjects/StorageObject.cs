@@ -31,6 +31,10 @@ namespace DataObjects
         public int AreaId { get; set; }
 
         /// <summary>
+        /// 对应库存
+        /// </summary>
+        public int InventoryId { get; set; }
+        /// <summary>
         /// 操作人
         /// </summary>
         public int OperatorId { get; set; }
