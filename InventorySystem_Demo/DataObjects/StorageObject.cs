@@ -46,6 +46,7 @@ namespace DataObjects
         /* Join */
         public string ItemIdName { get; set; }
         public string AreaIdName { get; set; }
+        public string InventoryIdName { get; set; }
         public string OperatorIdName { get; set; }
     }
 }
