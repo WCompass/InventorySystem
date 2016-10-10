@@ -11,7 +11,6 @@ namespace IDataAccess
         /// </summary>
         /// <returns></returns>
         IList<StorageObject> GetStorageList();
-2
         /// <summary>
         /// 获得对应状态的列表
         /// </summary>
