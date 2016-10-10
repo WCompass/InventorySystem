@@ -80,8 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Scripts\" />
-    <Folder Include="Styles\" />
+    <Folder Include="Scripts\common\" />
+    <Folder Include="Scripts\lib\" />
+    <Folder Include="Styles\lib\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
