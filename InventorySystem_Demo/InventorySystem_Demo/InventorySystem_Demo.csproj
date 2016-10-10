@@ -90,8 +90,11 @@
     <Content Include="DeviceList.aspx" />
     <Content Include="DeviceProfile.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="ItemList.aspx" />
+    <Content Include="ItemProfile.aspx" />
     <Content Include="NewArea.aspx" />
     <Content Include="NewDevice.aspx" />
+    <Content Include="NewItem.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +133,20 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ItemList.aspx.cs">
+      <DependentUpon>ItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemList.aspx.designer.cs">
+      <DependentUpon>ItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemProfile.aspx.cs">
+      <DependentUpon>ItemProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemProfile.aspx.designer.cs">
+      <DependentUpon>ItemProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewArea.aspx.cs">
       <DependentUpon>NewArea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -144,12 +161,20 @@
     <Compile Include="NewDevice.aspx.designer.cs">
       <DependentUpon>NewDevice.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NewItem.aspx.cs">
+      <DependentUpon>NewItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewItem.aspx.designer.cs">
+      <DependentUpon>NewItem.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Scripts\" />
-    <Folder Include="Styles\" />
+    <Folder Include="Scripts\common\" />
+    <Folder Include="Scripts\lib\" />
+    <Folder Include="Styles\lib\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
