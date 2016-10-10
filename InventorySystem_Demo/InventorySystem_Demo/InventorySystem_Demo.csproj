@@ -78,16 +78,40 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AreaList.aspx" />
+    <Content Include="AreaProfile.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="NewArea.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaList.aspx.cs">
+      <DependentUpon>AreaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AreaList.aspx.designer.cs">
+      <DependentUpon>AreaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AreaProfile.aspx.cs">
+      <DependentUpon>AreaProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AreaProfile.aspx.designer.cs">
+      <DependentUpon>AreaProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewArea.aspx.cs">
+      <DependentUpon>NewArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewArea.aspx.designer.cs">
+      <DependentUpon>NewArea.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
