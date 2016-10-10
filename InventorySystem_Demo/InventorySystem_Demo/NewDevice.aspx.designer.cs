@@ -11,7 +11,7 @@ namespace InventorySystem_Demo
 {
 
 
-    public partial class Index
+    public partial class NewDevice
     {
 
         /// <summary>
