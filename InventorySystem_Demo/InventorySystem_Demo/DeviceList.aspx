@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AreaList.aspx.cs" Inherits="InventorySystem_Demo.AreaList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DeviceList.aspx.cs" Inherits="InventorySystem_Demo.DeviceList" %>
 
 <!DOCTYPE html>
 
@@ -10,15 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
+        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
     </div>
     </form>
 </body>

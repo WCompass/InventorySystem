@@ -40,17 +40,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Edward.BLL">
-      <HintPath>F:\text\实践项目\DLL\Edward.BLL.dll</HintPath>
+    <Reference Include="Edward.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\DLL\Edward.BLL.dll</HintPath>
     </Reference>
-    <Reference Include="Edward.DAL">
-      <HintPath>F:\text\实践项目\DLL\Edward.DAL.dll</HintPath>
+    <Reference Include="Edward.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\DLL\Edward.DAL.dll</HintPath>
     </Reference>
-    <Reference Include="Edward.DBHelper">
-      <HintPath>F:\text\实践项目\DLL\Edward.DBHelper.dll</HintPath>
+    <Reference Include="Edward.DBHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\DLL\Edward.DBHelper.dll</HintPath>
     </Reference>
-    <Reference Include="Edward.Framework">
-      <HintPath>F:\text\实践项目\DLL\Edward.Framework.dll</HintPath>
+    <Reference Include="Edward.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\DLL\Edward.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,9 +84,12 @@
   <ItemGroup>
     <Content Include="AreaList.aspx" />
     <Content Include="AreaProfile.aspx" />
+    <Content Include="DeviceList.aspx" />
+    <Content Include="DeviceProfile.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="ItemList.aspx" />
     <Content Include="NewArea.aspx" />
+    <Content Include="NewDevice.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +106,20 @@
     </Compile>
     <Compile Include="AreaProfile.aspx.designer.cs">
       <DependentUpon>AreaProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceList.aspx.cs">
+      <DependentUpon>DeviceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeviceList.aspx.designer.cs">
+      <DependentUpon>DeviceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceProfile.aspx.cs">
+      <DependentUpon>DeviceProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeviceProfile.aspx.designer.cs">
+      <DependentUpon>DeviceProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -120,6 +141,13 @@
     </Compile>
     <Compile Include="NewArea.aspx.designer.cs">
       <DependentUpon>NewArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewDevice.aspx.cs">
+      <DependentUpon>NewDevice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewDevice.aspx.designer.cs">
+      <DependentUpon>NewDevice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
