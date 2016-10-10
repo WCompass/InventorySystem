@@ -80,8 +80,11 @@
   <ItemGroup>
     <Content Include="AreaList.aspx" />
     <Content Include="AreaProfile.aspx" />
+    <Content Include="DeviceList.aspx" />
+    <Content Include="DeviceProfile.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="NewArea.aspx" />
+    <Content Include="NewDevice.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +102,20 @@
     <Compile Include="AreaProfile.aspx.designer.cs">
       <DependentUpon>AreaProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeviceList.aspx.cs">
+      <DependentUpon>DeviceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeviceList.aspx.designer.cs">
+      <DependentUpon>DeviceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceProfile.aspx.cs">
+      <DependentUpon>DeviceProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeviceProfile.aspx.designer.cs">
+      <DependentUpon>DeviceProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -112,6 +129,13 @@
     </Compile>
     <Compile Include="NewArea.aspx.designer.cs">
       <DependentUpon>NewArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewDevice.aspx.cs">
+      <DependentUpon>NewDevice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewDevice.aspx.designer.cs">
+      <DependentUpon>NewDevice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
