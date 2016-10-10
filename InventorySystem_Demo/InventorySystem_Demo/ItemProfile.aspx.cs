@@ -26,7 +26,7 @@ namespace InventorySystem_Demo
         protected void Bind()
         {
             //绑定类目数据
-            string sqlCatagory = "Select * from TF_Category";
+            string sqlCatagory = "Select * from Categorys";
             DataTable dtCatagory = BaseDAL.DBHelper.GetList(sqlCatagory);
             ddlCategoryId.DataSource = dtCatagory;
             ddlCategoryId.DataTextField = "Name";
@@ -35,19 +35,19 @@ namespace InventorySystem_Demo
 
             //读取数据
             string ItemId = Request.QueryString["ItemId"];
-            string sql = "Code,I.Name,I.CategoryId,I.Price,I.Description,I.CreatedTime,U.Name,I.StatusCode from TF_Item as I left join TF_User as U on I.StatusCode=U.StatusCode where ItemId =@id";
+            string sql = "Select * from Items where ItemId =@id";
             SqlParameter param = new SqlParameter("@id", ItemId);
             DataTable dt = BaseDAL.DBHelper.GetList(sql, param);
             if(dt.Rows.Count > 0)
             {
                 txtCode.Text = dt.Rows[0]["Code"].ToString();
                 txtName.Text = dt.Rows[0]["Name"].ToString();
-                ddlCategoryId.SelectedValue = dt.Rows[0]["CategoryId"].ToString();
+                ddlCategoryId.SelectedValue = dt.Rows[0]["CategoryName"].ToString();
                 txtPrice.Text = dt.Rows[0]["Price"].ToString();
                 txtDescription.Text = dt.Rows[0]["Description"].ToString();
                 ddlStatus.SelectedValue = dt.Rows[0]["StatusCode"].ToString();
-                txtCreatedTime.Text = dt.Rows[0]["CteatedTime"].ToString();
-                txtCreatedBy.Text = dt.Rows[0]["CreatedBy"].ToString();
+                txtCreatedTime.Text = dt.Rows[0]["CreatedTime"].ToString();
+                txtCreatedBy.Text = dt.Rows[0]["CreatedByName"].ToString();
             }
         }
 
@@ -73,11 +73,11 @@ namespace InventorySystem_Demo
             };
             if (BaseDAL.DBHelper.Update(sqlUpdate, param) > 0)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "success", "alert('修改成功！');window.location.href='./ItemList.aspx'");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Success", "alert('修改成功！');window.location.href='./ItemList.aspx'",true);
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "success", "alert('修改失败！')");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('修改失败！')");
             }
         }
 
@@ -93,11 +93,11 @@ namespace InventorySystem_Demo
             SqlParameter param = new SqlParameter("@id", ItemId);
             if (BaseDAL.DBHelper.Update(sqlUpdate, param) > 0)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "success", "alert('删除成功！');window.location.href='./ItemList.aspx'");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Success", "alert('删除成功！');window.location.href='./ItemList.aspx'",true);
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "success", "alert('删除失败！')");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('删除失败！')");
             }
         }
 

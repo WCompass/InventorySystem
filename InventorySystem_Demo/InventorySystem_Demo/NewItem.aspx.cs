@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Edward.DAL;
 using Edward.DBHelper;
+using System.Data;
 
 namespace InventorySystem_Demo
 {
@@ -16,9 +17,20 @@ namespace InventorySystem_Demo
 		{
             if (!IsPostBack)
             {
-
+                Bind();
             }
 		}
+
+        protected void Bind()
+        {
+            //绑定类目数据
+            string sqlCatagory = "Select * from Categorys";
+            DataTable dtCatagory = BaseDAL.DBHelper.GetList(sqlCatagory);
+            ddlCategoryId.DataSource = dtCatagory;
+            ddlCategoryId.DataTextField = "Name";
+            ddlCategoryId.DataValueField = "CategoryId";
+            ddlCategoryId.DataBind();
+        }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -30,7 +42,7 @@ namespace InventorySystem_Demo
             int CreatedBy = 1;
             int StatusCode = 1;
 
-            string sqlAdd = "Insert into Item (@Code,@Name,@CategoryId,@Price,@Description,getdate(),@CreatedBy,@StatusCode)";
+            string sqlAdd = "Insert into TF_Item (@Code,@Name,@CategoryId,@Price,@Description,getdate(),@CreatedBy,@StatusCode)";
             SqlParameter[] param = new SqlParameter[] {
                 new SqlParameter("@Code",Code),
                 new SqlParameter("@Name",Name),
@@ -43,11 +55,11 @@ namespace InventorySystem_Demo
 
             if (BaseDAL.DBHelper.Insert(sqlAdd, param) > 0)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "success", "alert('添加成功！');window.location.href='./ItemList.aspx'");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Success", "alert('添加成功！');window.location.href='./ItemList.aspx'",true);
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "success", "alert('添加失败！')");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('添加失败！')");
             }
         }
 
