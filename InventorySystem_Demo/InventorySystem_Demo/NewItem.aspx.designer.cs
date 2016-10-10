@@ -10,7 +10,7 @@
 namespace InventorySystem_Demo {
     
     
-    public partial class NewArea {
+    public partial class NewItem {
         
         /// <summary>
         /// form1 控件。
