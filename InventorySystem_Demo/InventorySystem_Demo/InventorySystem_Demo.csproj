@@ -90,6 +90,7 @@
     <Content Include="ItemList.aspx" />
     <Content Include="NewArea.aspx" />
     <Content Include="NewDevice.aspx" />
+    <Content Include="NewItem.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="NewDevice.aspx.designer.cs">
       <DependentUpon>NewDevice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewItem.aspx.cs">
+      <DependentUpon>NewItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewItem.aspx.designer.cs">
+      <DependentUpon>NewItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

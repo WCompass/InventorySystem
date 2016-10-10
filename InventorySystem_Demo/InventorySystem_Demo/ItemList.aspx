@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="Search">
-            <asp:LinkButton ID="lbAdd" runat="server">新增</asp:LinkButton>
+            <asp:LinkButton ID="lbAdd" runat="server" OnClick="lbAdd_Click">新增</asp:LinkButton>
         </div>
         <div class="Show">
             <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">

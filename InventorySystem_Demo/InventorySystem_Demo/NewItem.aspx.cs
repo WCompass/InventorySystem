@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace InventorySystem_Demo
 {
-    public partial class NewItem : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+	public partial class NewItem : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
 
-        }
-    }
+		}
+	}
 }
