@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Edward.BLL">
+      <HintPath>F:\text\实践项目\DLL\Edward.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Edward.DAL">
+      <HintPath>F:\text\实践项目\DLL\Edward.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Edward.DBHelper">
+      <HintPath>F:\text\实践项目\DLL\Edward.DBHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Edward.Framework">
+      <HintPath>F:\text\实践项目\DLL\Edward.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />

@@ -19,6 +19,13 @@ namespace IDataAccess
         IList<CategoryObject> GetCategoryList(int statusCode);
 
         /// <summary>
+        /// 获取创建人Id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        IList<CategoryObject> GetCategoryListByUser(int userId);
+
+        /// <summary>
         /// 获得数据总数
         /// </summary>
         /// <returns></returns>
