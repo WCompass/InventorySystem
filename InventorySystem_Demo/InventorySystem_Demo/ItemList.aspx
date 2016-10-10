@@ -13,7 +13,7 @@
             <asp:LinkButton ID="lbAdd" runat="server" OnClick="lbAdd_Click">新增</asp:LinkButton>
         </div>
         <div class="Show">
-            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" EmptyDataText="暂无数据">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

@@ -88,6 +88,7 @@
     <Content Include="DeviceProfile.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="ItemList.aspx" />
+    <Content Include="ItemProfile.aspx" />
     <Content Include="NewArea.aspx" />
     <Content Include="NewDevice.aspx" />
     <Content Include="NewItem.aspx" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="ItemList.aspx.designer.cs">
       <DependentUpon>ItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemProfile.aspx.cs">
+      <DependentUpon>ItemProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemProfile.aspx.designer.cs">
+      <DependentUpon>ItemProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewArea.aspx.cs">
       <DependentUpon>NewArea.aspx</DependentUpon>
