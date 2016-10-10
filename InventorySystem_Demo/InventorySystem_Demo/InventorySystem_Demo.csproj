@@ -40,17 +40,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Edward.BLL">
-      <HintPath>F:\text\实践项目\DLL\Edward.BLL.dll</HintPath>
+    <Reference Include="Edward.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\DLL\Edward.BLL.dll</HintPath>
     </Reference>
-    <Reference Include="Edward.DAL">
-      <HintPath>F:\text\实践项目\DLL\Edward.DAL.dll</HintPath>
+    <Reference Include="Edward.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\DLL\Edward.DAL.dll</HintPath>
     </Reference>
-    <Reference Include="Edward.DBHelper">
-      <HintPath>F:\text\实践项目\DLL\Edward.DBHelper.dll</HintPath>
+    <Reference Include="Edward.DBHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\DLL\Edward.DBHelper.dll</HintPath>
     </Reference>
-    <Reference Include="Edward.Framework">
-      <HintPath>F:\text\实践项目\DLL\Edward.Framework.dll</HintPath>
+    <Reference Include="Edward.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\DLL\Edward.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
