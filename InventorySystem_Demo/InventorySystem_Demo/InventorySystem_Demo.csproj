@@ -81,6 +81,7 @@
     <Content Include="AreaList.aspx" />
     <Content Include="AreaProfile.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="ItemList.aspx" />
     <Content Include="NewArea.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -105,6 +106,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemList.aspx.cs">
+      <DependentUpon>ItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemList.aspx.designer.cs">
+      <DependentUpon>ItemList.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewArea.aspx.cs">
       <DependentUpon>NewArea.aspx</DependentUpon>

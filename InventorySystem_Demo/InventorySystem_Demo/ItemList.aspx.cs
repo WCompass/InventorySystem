@@ -8,17 +8,20 @@ using System.Web.UI.WebControls;
 
 namespace InventorySystem_Demo
 {
-    public partial class ItemList : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            Bind(null, null);
-        }
+	public partial class ItemList : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
+            if (!IsPostBack)
+            {
+                Bind();
+            }            
+		}
 
-        protected void Bind(object sender, EventArgs e)
+        protected void Bind()
         {
-            string sql = "Select ItemId,Code,Name,CategoryId,Price,StatusCode from TF_Item";
+            string sql = "Select ItemId,Code,I.Name,C.Name,Price,StatusCode from TF_Item as I left join TF_Category as C on I.CategoryId = C.CategoryId";
             DataTable dt=
         }
-    }
+	}
 }
