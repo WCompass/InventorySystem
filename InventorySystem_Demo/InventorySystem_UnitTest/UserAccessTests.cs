@@ -19,6 +19,8 @@ namespace InventorySystem_UnitTest
             IList<UserObject> userList = _Dal.GetUserList();
 
             Assert.False(userList == null);
+            
+
         }
     }
 }

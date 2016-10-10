@@ -11,7 +11,7 @@ namespace IDataAccess
         /// </summary>
         /// <returns></returns>
         IList<StorageObject> GetStorageList();
-
+2
         /// <summary>
         /// 获得对应状态的列表
         /// </summary>
@@ -41,38 +41,32 @@ namespace IDataAccess
         IList<StorageObject> GetStorageListByTimeRange(DateTime startTime, DateTime endTime);
 
         /// <summary>
-        /// 获得区域Id
+        /// 根据区域Id获得列表
         /// </summary>
         /// <param name="AreaId">区域Id</param>
         /// <returns></returns>
-        IList<StorageObject> GetStorageListByArea(int AreaId);
+        IList<StorageObject> GetStorageListByArea(int areaId);
 
         /// <summary>
         /// 获得类目Id
         /// </summary>
         /// <param name="CategoryId">类目Id</param>
         /// <returns></returns>
-        IList<StorageObject> GetStorageListByCategory(int CategoryId);
+        IList<StorageObject> GetStorageListByCategory(int categoryId);
 
-        /// <summary>
-        /// 获得库存数量
-        /// </summary>
-        /// <param name="Count">库存数量</param>
-        /// <returns></returns>
-        IList<StorageObject> GetStorageListByCount(int Count);
 
         /// <summary>
         /// 获得物品Id
         /// </summary>
         /// <param name="ItemId">物品Id</param>
         /// <returns></returns>
-        IList<StorageObject> GetStorageListByItem(int ItemId);
+        IList<StorageObject> GetStorageListByItem(int itemId);
 
         /// <summary>
         /// 获得操作人Id
         /// </summary>
         /// <param name="UserId">操作人Id</param>
         /// <returns></returns>
-        IList<StorageObject> GetStorageListByOperatorId(int UserId);
+        IList<StorageObject> GetStorageListByOperatorId(int userId);
     }
 }
