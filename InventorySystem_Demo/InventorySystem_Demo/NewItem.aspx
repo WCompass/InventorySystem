@@ -18,7 +18,7 @@
                 <dt>物品价格：<asp:TextBox ID="txtPrice" runat="server"></asp:TextBox></dt>
                 <dt>描述：<asp:TextBox ID="txtDescription" runat="server"></asp:TextBox></dt>
                 <dt>
-                    <asp:Button ID="btnSave" runat="server" Text="保存" />&nbsp;<asp:Button ID="btnCancel" runat="server" Text="取消" /></dt>
+                    <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" />&nbsp;<asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click" /></dt>
             </dl>
         </div>
     </form>

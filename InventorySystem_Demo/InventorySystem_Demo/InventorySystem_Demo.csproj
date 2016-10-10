@@ -88,6 +88,7 @@
     <Content Include="DeviceProfile.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="ItemList.aspx" />
+    <Content Include="ItemProfile.aspx" />
     <Content Include="NewArea.aspx" />
     <Content Include="NewDevice.aspx" />
     <Content Include="NewItem.aspx" />
@@ -136,6 +137,13 @@
     <Compile Include="ItemList.aspx.designer.cs">
       <DependentUpon>ItemList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ItemProfile.aspx.cs">
+      <DependentUpon>ItemProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemProfile.aspx.designer.cs">
+      <DependentUpon>ItemProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewArea.aspx.cs">
       <DependentUpon>NewArea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,8 +169,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Scripts\" />
-    <Folder Include="Styles\" />
+    <Folder Include="Scripts\common\" />
+    <Folder Include="Scripts\lib\" />
+    <Folder Include="Styles\lib\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
