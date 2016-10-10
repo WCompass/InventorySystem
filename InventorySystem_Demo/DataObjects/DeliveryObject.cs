@@ -25,7 +25,16 @@ namespace DataObjects
         /// </summary>
         public int Count { get; set; }
 
+        /// <summary>
+        /// 所属区域
+        /// </summary>
         public int AreaId { get; set; }
+
+        /// <summary>
+        /// 对应库存
+        /// </summary>
+        public int InventoryId { get; set; }
+
         /// <summary>
         /// 操作人
         /// </summary>
@@ -39,6 +48,7 @@ namespace DataObjects
         /* Join */
         public string AreaIdName { get; set; }
         public string ItemIdName { get; set; }
+        public string InventoryIdName { get; set; }
         public string OperatedTimeName { get; set; }
     }
 }

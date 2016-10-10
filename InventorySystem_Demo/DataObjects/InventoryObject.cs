@@ -29,6 +29,12 @@ namespace DataObjects
         /// 库存数量
         /// </summary>
         public int Count { get; set; }
+
+        /// <summary>
+        /// 物品价格
+        /// </summary>
+        public float Price { get; set; }
+
         /// <summary>
         /// 最后修改时间
         /// </summary>
