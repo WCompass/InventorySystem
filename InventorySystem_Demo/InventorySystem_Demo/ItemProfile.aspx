@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div>
             <dl>
-                <dd>添加物品</dd>
+                <dd>修改物品</dd>
                 <dt>物品编号：<asp:TextBox ID="txtCode" runat="server"></asp:TextBox></dt>
                 <dt>物品名称：<asp:TextBox ID="txtName" runat="server"></asp:TextBox></dt>
                 <dt>物品类目：<asp:DropDownList ID="ddlCategoryId" runat="server"></asp:DropDownList></dt>
