@@ -10,7 +10,15 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowUpdating="GridView1_RowUpdating">
+            <Columns>
+                <asp:BoundField DataField="Name" HeaderText="设备名称" />
+                <asp:BoundField DataField="IMEI" HeaderText="设备IMEI" />
+                <asp:BoundField DataField="AreaId" HeaderText="所属区域" />
+                <asp:BoundField DataField="StatusCodeText" HeaderText="状态" />
+                <asp:ButtonField CommandName="Delete" Text="删除" />
+            </Columns>
+        </asp:GridView>
     </div>
     </form>
 </body>

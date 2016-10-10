@@ -13,5 +13,9 @@ namespace InventorySystem_Demo
         {
 
         }
+        public void bind()
+        { 
+            
+        }
     }
 }
