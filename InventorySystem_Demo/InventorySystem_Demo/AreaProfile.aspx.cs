@@ -20,6 +20,9 @@ namespace InventorySystem_Demo
             if (!IsPostBack)
             {
                 Bind();
+                BindLevel();
+                BindOwner();
+                BindStatusCode();
             }
         }
 
@@ -45,13 +48,44 @@ namespace InventorySystem_Demo
                 txtDescription.Text = dt.Rows[0]["Description"].ToString();
             }
         }
+        protected void BindLevel()
+        {
+            string sql = "select Level,Code from TF_Category";
+            DataTable AreaId = BaseDAL.DBHelper.GetList(sql);
+            ddlLevel.DataSource = AreaId;
+            ddlLevel.DataTextField = "Level";
+            ddlLevel.DataValueField = "Code";
+            ddlLevel.DataBind();
+            ddlLevel.Items.Insert(0, new ListItem(""));
+        }
+        protected void BindOwner()
+        {
+            string sql = "select Name,Code from TF_User";
+            DataTable UserId = BaseDAL.DBHelper.GetList(sql);
+            ddlOwner.DataSource = UserId;
+            ddlOwner.DataTextField = "Name";
+            ddlOwner.DataValueField = "Code";
+            ddlOwner.DataBind();
+            ddlOwner.Items.Insert(0, new ListItem(""));
+        }
+        protected void BindStatusCode()
+        {
+            string sql = "select AttributeText,AttributeValue from StringMap";
+            DataTable StringMapId = BaseDAL.DBHelper.GetList(sql);
+            ddlStatusCode.DataSource = StringMapId;
+            ddlStatusCode.DataTextField = "AttributeText";
+            ddlStatusCode.DataValueField = "AttributeValue";
+            ddlStatusCode.DataBind();
+            ddlStatusCode.Items.Insert(0, new ListItem(""));
+        }
         protected void btnSubmt_Click(object sender, EventArgs e)
         {
             string Code = txtCode.Text.Trim();
             string Name = txtName.Text.Trim();
-            string Level = txtLevel.Text.Trim();
-            string Owner = txtOwner.Text.Trim();
-            //int Owner=int.Parse(ddlOwner.SelectedValus);
+            //string Level = txtLevel.Text.Trim();
+            int Level = int.Parse(ddlLevel.SelectedValue);
+            //string Owner = txtOwner.Text.Trim();
+            int Owner=int.Parse(ddlOwner.SelectedValue);
             int StatusCode = int.Parse(ddlStatusCode.SelectedValue);
             string Description = txtDescription.Text.Trim();
 

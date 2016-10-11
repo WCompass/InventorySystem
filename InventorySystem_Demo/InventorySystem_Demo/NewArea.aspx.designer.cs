@@ -67,6 +67,15 @@ namespace InventorySystem_Demo {
         protected global::System.Web.UI.WebControls.TextBox txtLevel;
         
         /// <summary>
+        /// ddlLevel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlLevel;
+        
+        /// <summary>
         /// txtOwner 控件。
         /// </summary>
         /// <remarks>
@@ -76,13 +85,13 @@ namespace InventorySystem_Demo {
         protected global::System.Web.UI.WebControls.TextBox txtOwner;
         
         /// <summary>
-        /// ddlStatusCode 控件。
+        /// ddlOwner 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStatusCode;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOwner;
         
         /// <summary>
         /// txtDescription 控件。
