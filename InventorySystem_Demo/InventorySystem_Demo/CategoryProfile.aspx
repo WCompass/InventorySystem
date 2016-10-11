@@ -20,7 +20,7 @@
                 <dt>创建时间：<asp:TextBox ID="txtCreatedTime" runat="server" Enabled="False"></asp:TextBox></dt>
                 <dt>创建人：<asp:TextBox ID="txtCreatedBy" runat="server" Enabled="False"></asp:TextBox></dt>
                 <dt>
-                    <asp:Button ID="btnEdit" runat="server" Text="修改" OnClick="btnEdit_Click" />&nbsp;<asp:Button ID="btnBack" runat="server" Text="返回" OnClick="btnBack_Click" />&nbsp;<asp:Button ID="btnDelete" runat="server" Text="删除" OnClick="btnDelete_Click" style="width: 40px" /></dt>
+                    <asp:Button ID="btnEdit" runat="server" Text="修改" OnClick="btnEdit_Click" />&nbsp;<asp:Button ID="btnBack" runat="server" Text="返回" OnClick="btnBack_Click" />&nbsp;<asp:Button ID="btnDelete" runat="server" Text="删除" OnClick="btnDelete_Click" OnClientClick="return confirm('确定删除吗？')"/></dt>
             </dl>
         </div>
     </form>
