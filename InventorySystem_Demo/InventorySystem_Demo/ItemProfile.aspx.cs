@@ -63,13 +63,20 @@ namespace InventorySystem_Demo
             string Code = txtCode.Text.Trim();
             string Name = txtName.Text.Trim();
             int CategoryId = int.Parse(ddlCategoryId.SelectedValue);
-            float Price = float.Parse(txtPrice.Text.Trim());
+            string Price = txtPrice.Text.Trim();
             string Description = txtDescription.Text.Trim();
             int StatusCode = int.Parse(ddlStatus.SelectedValue);
 
-            string ItemId = Request.QueryString["ItemId"];
-            string sqlUpdate = "Update TF_Item set Code=@Code,Name=@Name,CategoryId=@CategoryId,Price=@Price,Description=@Description,StatusCode=@StatusCode where ItemId=@id";
-            SqlParameter[] param = new SqlParameter[] {
+            //判断是否为空
+            if (Code == "" || Name == "" || Price == "")
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('有必填项未填！')", true);
+            }
+            else
+            {
+                string ItemId = Request.QueryString["ItemId"];
+                string sqlUpdate = "Update TF_Item set Code=@Code,Name=@Name,CategoryId=@CategoryId,Price=@Price,Description=@Description,StatusCode=@StatusCode where ItemId=@id";
+                SqlParameter[] param = new SqlParameter[] {
                 new SqlParameter("@id", ItemId),
                 new SqlParameter("@Code",Code),
                 new SqlParameter("@Name",Name),
@@ -78,13 +85,14 @@ namespace InventorySystem_Demo
                 new SqlParameter("@Description",Description),
                 new SqlParameter("@StatusCode",StatusCode)
             };
-            if (BaseDAL.DBHelper.Update(sqlUpdate, param) > 0)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Success", "alert('修改成功！');window.location.href='./ItemList.aspx'",true);
-            }
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('修改失败！')", true);
+                if (BaseDAL.DBHelper.Update(sqlUpdate, param) > 0)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Success", "alert('修改成功！');window.location.href='./ItemList.aspx'", true);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('修改失败！')", true);
+                }
             }
         }
 
