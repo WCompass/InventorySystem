@@ -49,7 +49,7 @@ namespace InventorySystem_Demo
             string sqlStr = string.Format(@"select StringMapId,TableName,FieldName,AttributeText,AttributeValue,Description,DisplayOrder from StringMap");
             DataTable StatusCodeTable = BaseDAL.DBHelper.GetList(sqlStr);
             this.ddlStatusCode.DataSource = StatusCodeTable;
-            this.ddlStatusCode.DataValueField = "StringMapId";
+            this.ddlStatusCode.DataValueField = "AttributeValue";
             this.ddlStatusCode.DataTextField = "AttributeText";
             this.ddlStatusCode.DataBind();
         }

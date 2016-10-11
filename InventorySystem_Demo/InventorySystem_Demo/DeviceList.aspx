@@ -16,8 +16,8 @@
             <Columns>
                 <asp:BoundField DataField="Name" HeaderText="设备名称" />
                 <asp:BoundField DataField="IMEI" HeaderText="设备IMEI" />
-                <asp:BoundField DataField="AreaId" HeaderText="所属区域" />
-                <asp:BoundField DataField="StatusCode" HeaderText="状态" />
+                <asp:BoundField DataField="AreaIdName" HeaderText="所属区域" />
+                <asp:BoundField DataField="StatusCodeText" HeaderText="状态" />
                 <asp:ButtonField CommandName="Delete" Text="删除" />
                 <asp:ButtonField CommandName="Update" Text="详情/修改" />
             </Columns>
