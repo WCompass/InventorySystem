@@ -26,17 +26,19 @@ namespace InventorySystem_Demo
         protected void Bind()
         {
             //绑定类目，状态数据
-            //string sqlBind = "Select distinct CategoryId,StatusCode from Items";
-            //DataTable dtBind = BaseDAL.DBHelper.GetList(sqlBind);
-            //ddlCategoryId.DataSource = dtBind;
-            //ddlCategoryId.DataTextField = "CategoryName";
-            //ddlCategoryId.DataValueField = "CategoryId";
-            //ddlCategoryId.DataBind();
+            string sqlCategory = "Select * from Categorys";
+            DataTable dtCategory = BaseDAL.DBHelper.GetList(sqlCategory);
+            ddlCategoryId.DataSource = dtCategory;
+            ddlCategoryId.DataTextField = "Name";
+            ddlCategoryId.DataValueField = "CategoryId";
+            ddlCategoryId.DataBind();
 
-            //ddlStatus.DataSource = dtBind;
-            //ddlStatus.DataTextField = "StatusCodeText";
-            //ddlStatus.DataValueField = "StatusCode";
-            //ddlStatus.DataBind();
+            string sqlBind = "Select AttributeText,AttributeValue from StringMap";
+            DataTable dtBind = BaseDAL.DBHelper.GetList(sqlBind);
+            ddlStatus.DataSource = dtBind;
+            ddlStatus.DataTextField = "AttributeText";
+            ddlStatus.DataValueField = "AttributeValue";
+            ddlStatus.DataBind();
 
             //读取数据
             string ItemId = Request.QueryString["ItemId"];

@@ -23,10 +23,10 @@ namespace InventorySystem_Demo
 
         protected void Bind()
         {
-            //绑定类目数据
-            string sqlCatagory = "Select * from Categorys";
-            DataTable dtCatagory = BaseDAL.DBHelper.GetList(sqlCatagory);
-            ddlCategoryId.DataSource = dtCatagory;
+            //绑定类目，状态数据
+            string sqlCategory = "Select * from Categorys";
+            DataTable dtCategory = BaseDAL.DBHelper.GetList(sqlCategory);
+            ddlCategoryId.DataSource = dtCategory;
             ddlCategoryId.DataTextField = "Name";
             ddlCategoryId.DataValueField = "CategoryId";
             ddlCategoryId.DataBind();
