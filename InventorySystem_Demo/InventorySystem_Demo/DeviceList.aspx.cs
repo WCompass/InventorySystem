@@ -21,7 +21,7 @@ namespace InventorySystem_Demo
         }
         public void bind()
         {
-            string sqlStr = "select DeviceId,IMEI,Name,AreaId,StatusCodeText from Devices";
+            string sqlStr = "select DeviceId,IMEI,Name,AreaId,StatusCode from Devices";
             DataTable dt = BaseDAL.DBHelper.GetList(sqlStr);
             this.GridView1.DataSource = dt;
             GridView1.DataKeyNames = new string[] { "DeviceId" };

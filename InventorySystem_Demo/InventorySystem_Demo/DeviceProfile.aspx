@@ -11,27 +11,27 @@
     <form id="form1" runat="server">
     <div>
 
-        设备名称：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        设备名称：<asp:TextBox ID="txtName" runat="server"></asp:TextBox>
         <br />
-        设备IMEI：<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        设备IMEI：<asp:TextBox ID="txtIMEI" runat="server"></asp:TextBox>
         <br />
-        所属区域：<asp:DropDownList ID="DropDownList1" runat="server">
+        所属区域：<asp:DropDownList ID="ddlAreaId" runat="server">
         </asp:DropDownList>
         <br />
-        描&nbsp;&nbsp; 述：<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        描&nbsp;&nbsp; 述：<asp:TextBox ID="textDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
         <br />
-        状&nbsp;&nbsp; 态：<asp:DropDownList ID="DropDownList2" runat="server">
+        状&nbsp;&nbsp; 态：<asp:DropDownList ID="ddlStatusCode" runat="server">
         </asp:DropDownList>
         <br />
-        创建时间：<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        创建时间：<asp:TextBox ID="txtCreatedTime" runat="server"></asp:TextBox>
         <br />
-        创建人：<asp:DropDownList ID="DropDownList3" runat="server">
+        创建人：<asp:DropDownList ID="ddlCreatedBy" runat="server">
         </asp:DropDownList>
         <br />
 &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button1" runat="server" Text="修改" />
+        <asp:Button ID="Button1" runat="server" Text="修改" OnClick="Button1_Click" />
 &nbsp;&nbsp;
-        <asp:Button ID="Button2" runat="server" Text="返回" />
+        <asp:Button ID="Button2" runat="server" Text="返回" OnClick="Button2_Click" />
 
     </div>
     </form>

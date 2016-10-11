@@ -17,8 +17,10 @@
                 <asp:BoundField DataField="AreaId" HeaderText="所属区域" />
                 <asp:BoundField DataField="StatusCodeText" HeaderText="状态" />
                 <asp:ButtonField CommandName="Delete" Text="删除" />
+                <asp:ButtonField CommandName="Update" Text="详情/修改" />
             </Columns>
         </asp:GridView>
+        <br />
     </div>
     </form>
 </body>
