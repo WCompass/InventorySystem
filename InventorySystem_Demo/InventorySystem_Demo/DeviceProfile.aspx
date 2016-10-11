@@ -23,10 +23,9 @@
         状&nbsp;&nbsp; 态：<asp:DropDownList ID="ddlStatusCode" runat="server">
         </asp:DropDownList>
         <br />
-        创建时间：<asp:TextBox ID="txtCreatedTime" runat="server"></asp:TextBox>
+        创建时间：<asp:TextBox ID="txtCreatedTime" runat="server" ReadOnly="True"></asp:TextBox>
         <br />
-        创建人：<asp:DropDownList ID="ddlCreatedBy" runat="server">
-        </asp:DropDownList>
+        创建人：<asp:TextBox ID="txtcreateBy" runat="server" ReadOnly="True"></asp:TextBox>
         <br />
 &nbsp;&nbsp;&nbsp;
         <asp:Button ID="Button1" runat="server" Text="修改" OnClick="Button1_Click" />

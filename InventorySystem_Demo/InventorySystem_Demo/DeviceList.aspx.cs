@@ -26,7 +26,6 @@ namespace InventorySystem_Demo
             this.GridView1.DataSource = dt;
             GridView1.DataKeyNames = new string[] { "DeviceId" };
             this.GridView1.DataBind();
-
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -42,6 +41,11 @@ namespace InventorySystem_Demo
         {
             Response.Redirect("DeviceProfile.aspx?DeviceId=" + GridView1.DataKeys[e.RowIndex].Value.ToString());
             bind();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("NewDevice.aspx");
         }
     }
 }

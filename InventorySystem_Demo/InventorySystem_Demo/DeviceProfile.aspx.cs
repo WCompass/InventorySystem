@@ -17,24 +17,23 @@ namespace InventorySystem_Demo
         {
             if (!IsPostBack)
             {
-                DeviceId = Convert.ToInt32(Request.QueryString["classId"]);
+                DeviceId = Convert.ToInt32(Request.QueryString["DeviceId"]);
                 string sql = string.Format(@"select DeviceId,IMEI,Name,AreaId,Description,CreatedTime,CreatedBy,StatusCode from Devices where DeviceId=@DeviceId");
                 SqlParameter param = new SqlParameter("@DeviceId", DeviceId);
                 DataTable dt = BaseDAL.DBHelper.GetList(sql, param);
                 if (dt.Rows.Count > 0)
                 {
                     txtName.Text = dt.Rows[0]["Name"].ToString();
-                    txtIMEI.Text=dt.Rows[0]["Name"].ToString();
+                    txtIMEI.Text = dt.Rows[0]["IMEI"].ToString();
                     ddlAreaId.DataTextField = dt.Rows[0]["AreaId"].ToString();
                     textDescription.Text = dt.Rows[0]["Description"].ToString();
                     ddlStatusCode.DataTextField = dt.Rows[0]["StatusCode"].ToString();
                     txtCreatedTime.Text = dt.Rows[0]["CreatedTime"].ToString();
-                    ddlCreatedBy.DataTextField = dt.Rows[0]["CreatedBy"].ToString();
+                    txtcreateBy.Text = dt.Rows[0]["CreatedBy"].ToString();
                 }
             }
             bindAreaId();
             bindStatusCode();
-            bindCreatedBy();
         }
         public void bindAreaId()
         {
@@ -54,15 +53,7 @@ namespace InventorySystem_Demo
             this.ddlStatusCode.DataTextField = "AttributeText";
             this.ddlStatusCode.DataBind();
         }
-        public void bindCreatedBy()
-        {
-            string sqlStr = string.Format(@"select * from TF_User");
-            DataTable CreatedByTable = BaseDAL.DBHelper.GetList(sqlStr);
-            this.ddlStatusCode.DataSource = CreatedByTable;
-            this.ddlStatusCode.DataValueField = "UserId";
-            this.ddlStatusCode.DataTextField = "DomainName";
-            this.ddlStatusCode.DataBind();
-        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             string name = txtName.Text;
@@ -71,7 +62,7 @@ namespace InventorySystem_Demo
             string description= textDescription.Text;
             int statusCode = Convert.ToInt32(ddlStatusCode.SelectedValue);
             string createdTime = txtCreatedTime.Text;
-            int createdBy = Convert.ToInt32(ddlCreatedBy.SelectedValue);
+            string createdBy = txtcreateBy.Text;
             string sqlstr = "update TF_Device Set Name=@name,IMEI=@IMEI,AreaId=@areaId,Description=@description,StatusCode=@statusCode,CreatedTime=@createdTime,CreatedBy=@createdBy where DeviceId=@deviceId";
             SqlParameter[] param = new SqlParameter[] { 
                 new SqlParameter("@name",name),
