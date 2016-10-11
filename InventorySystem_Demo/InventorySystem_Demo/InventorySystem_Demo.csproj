@@ -84,6 +84,7 @@
   <ItemGroup>
     <Content Include="AreaList.aspx" />
     <Content Include="AreaProfile.aspx" />
+    <Content Include="CategoryList.aspx" />
     <Content Include="DeviceList.aspx" />
     <Content Include="DeviceProfile.aspx" />
     <Content Include="Index.aspx" />
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="AreaProfile.aspx.designer.cs">
       <DependentUpon>AreaProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryList.aspx.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryList.aspx.designer.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeviceList.aspx.cs">
       <DependentUpon>DeviceList.aspx</DependentUpon>

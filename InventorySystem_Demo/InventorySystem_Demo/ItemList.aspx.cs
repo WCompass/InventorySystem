@@ -59,7 +59,7 @@ namespace InventorySystem_Demo
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('删除失败！')");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('删除失败！')", true);
             }
         }
     }

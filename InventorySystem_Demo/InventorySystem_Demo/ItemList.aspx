@@ -20,7 +20,7 @@
                     <asp:BoundField DataField="Code" HeaderText="物品编号" SortExpression="Code" Visible="False" />
                     <asp:BoundField DataField="Name" HeaderText="物品名称" SortExpression="Name" />
                     <asp:BoundField DataField="CategoryName" HeaderText="物品类目" SortExpression="CategoryName" />
-                    <asp:BoundField DataField="Price" HeaderText="物品价格" SortExpression="Price" />
+                    <asp:BoundField DataField="Price" HeaderText="物品价格" SortExpression="Price" DataFormatString="{0:N4}" />
                     <asp:BoundField DataField="StatusCodeText" HeaderText="状态" SortExpression="StatusCodeText" />   
                     <asp:TemplateField HeaderText="操作" ShowHeader="False">
                         <ItemTemplate>
