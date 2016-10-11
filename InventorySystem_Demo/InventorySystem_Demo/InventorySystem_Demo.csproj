@@ -42,22 +42,22 @@
   <ItemGroup>
     <Reference Include="Edward.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\DLL\Edward.BLL.dll</HintPath>
+      <HintPath>G:\d33\Edward.BLL.dll</HintPath>
     </Reference>
     <Reference Include="Edward.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\DLL\Edward.DAL.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Tencent Files\947390399\FileRecv\Edward.DAL.dll</HintPath>
     </Reference>
     <Reference Include="Edward.DBHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\DLL\Edward.DBHelper.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Tencent Files\947390399\FileRecv\Edward.DBHelper.dll</HintPath>
     </Reference>
     <Reference Include="Edward.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\DLL\Edward.Framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Tencent Files\947390399\FileRecv\Edward.Framework.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\..\..\Desktop\学习资料\TestProject\TestProject\TestProject\bin\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Tencent Files\947390399\FileRecv\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -87,12 +87,15 @@
   <ItemGroup>
     <Content Include="AreaList.aspx" />
     <Content Include="AreaProfile.aspx" />
+    <Content Include="CategoryList.aspx" />
+    <Content Include="CategoryProfile.aspx" />
     <Content Include="DeviceList.aspx" />
     <Content Include="DeviceProfile.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="ItemList.aspx" />
     <Content Include="ItemProfile.aspx" />
     <Content Include="NewArea.aspx" />
+    <Content Include="NewCategory.aspx" />
     <Content Include="NewDevice.aspx" />
     <Content Include="NewItem.aspx" />
     <Content Include="Web.config" />
@@ -111,6 +114,20 @@
     </Compile>
     <Compile Include="AreaProfile.aspx.designer.cs">
       <DependentUpon>AreaProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryList.aspx.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryList.aspx.designer.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryProfile.aspx.cs">
+      <DependentUpon>CategoryProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryProfile.aspx.designer.cs">
+      <DependentUpon>CategoryProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeviceList.aspx.cs">
       <DependentUpon>DeviceList.aspx</DependentUpon>
@@ -154,6 +171,13 @@
     <Compile Include="NewArea.aspx.designer.cs">
       <DependentUpon>NewArea.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NewCategory.aspx.cs">
+      <DependentUpon>NewCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewCategory.aspx.designer.cs">
+      <DependentUpon>NewCategory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewDevice.aspx.cs">
       <DependentUpon>NewDevice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +199,9 @@
     <Folder Include="Scripts\common\" />
     <Folder Include="Scripts\lib\" />
     <Folder Include="Styles\lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
