@@ -23,10 +23,10 @@ namespace InventorySystem_Demo
 
         protected void Bind()
         {
-            //绑定类目数据
-            string sqlCatagory = "Select * from Categorys";
-            DataTable dtCatagory = BaseDAL.DBHelper.GetList(sqlCatagory);
-            ddlCategoryId.DataSource = dtCatagory;
+            //绑定类目，状态数据
+            string sqlCategory = "Select * from Categorys";
+            DataTable dtCategory = BaseDAL.DBHelper.GetList(sqlCategory);
+            ddlCategoryId.DataSource = dtCategory;
             ddlCategoryId.DataTextField = "Name";
             ddlCategoryId.DataValueField = "CategoryId";
             ddlCategoryId.DataBind();
@@ -42,7 +42,7 @@ namespace InventorySystem_Demo
             int CreatedBy = 1;
             int StatusCode = 1;
 
-            string sqlAdd = "Insert into TF_Item (@Code,@Name,@CategoryId,@Price,@Description,getdate(),@CreatedBy,@StatusCode)";
+            string sqlAdd = "Insert into TF_Item(Code,Name,CategoryId,Price,Description,CreatedTime,CreatedBy,StatusCode) values (@Code,@Name,@CategoryId,@Price,@Description,getdate(),@CreatedBy,@StatusCode)";
             SqlParameter[] param = new SqlParameter[] {
                 new SqlParameter("@Code",Code),
                 new SqlParameter("@Name",Name),
@@ -59,7 +59,7 @@ namespace InventorySystem_Demo
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('添加失败！')");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('添加失败！')",true);
             }
         }
 

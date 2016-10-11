@@ -20,8 +20,8 @@
                     <asp:BoundField DataField="Code" HeaderText="物品编号" SortExpression="Code" Visible="False" />
                     <asp:BoundField DataField="Name" HeaderText="物品名称" SortExpression="Name" />
                     <asp:BoundField DataField="CategoryName" HeaderText="物品类目" SortExpression="CategoryName" />
-                    <asp:BoundField DataField="Price" HeaderText="物品价格" SortExpression="Price" />
-                    <asp:BoundField DataField="StatusCodeText" HeaderText="状态" SortExpression="StatusCodeText" />   
+                    <asp:BoundField DataField="Price" HeaderText="物品价格" SortExpression="Price" DataFormatString="{0:N4}" />
+                    <asp:BoundField DataField="StatusCodeText" HeaderText="物品状态" SortExpression="StatusCodeText" />   
                     <asp:TemplateField HeaderText="操作" ShowHeader="False">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbDelete" runat="server" CausesValidation="false" OnClientClick="return confirm('确定删除吗？')" Text="删除" CommandArgument='<%# Eval("ItemId") %>' OnClick="lbDelete_Click"></asp:LinkButton>
