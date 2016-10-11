@@ -24,10 +24,9 @@ namespace InventorySystem_Demo
         }
         public void Bind()
         {
-            string sql = "select * from TF_Area where StatusCode=1";
+            string sql = "select AreaId,Code,Name,Level,OwnerName from Areas where StatusCode=1";
             DataTable dt = BaseDAL.DBHelper.GetList(sql);
             GridView1.DataSource = dt;
-            GridView1.DataKeyNames = new string[] { "AreaId" };
             GridView1.DataBind();
             GetNull(dt);
         }
