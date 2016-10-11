@@ -23,19 +23,28 @@
                     <div>区域名称：</div><div><asp:TextBox ID="txtName" runat="server"></asp:TextBox></div><div></div>
                 </li>
                 <li>
-                    <div>区域等级：</div><div><asp:TextBox ID="txtLevel" runat="server"></asp:TextBox></div><div></div>
+                    <div>区域顺序：</div><div><asp:TextBox ID="txtLevel" runat="server"></asp:TextBox>
+                    </div><div></div>
                 </li>
                 <li>
-                    <div>区域负责人：</div><div><asp:TextBox ID="txtOwner" runat="server"></asp:TextBox></div><div></div>
+                    <div>区域负责人：</div><div><asp:TextBox ID="txtOwner" runat="server"></asp:TextBox>
+                    </div><div></div>
                 </li>
                 <li>
-                    <div>创建人：</div><div><asp:TextBox ID="txtCreatedBy" runat="server"></asp:TextBox></div><div></div>
+                    <div>创建人：</div><div><asp:TextBox ID="txtCreatedBy" runat="server" Enabled="False"></asp:TextBox>
+                    </div><div></div>
                 </li>
                 <li>
-                    <div>创建时间：</div><div><asp:TextBox ID="txtCreatedTime" runat="server"></asp:TextBox></div><div></div>
+                    <div>创建时间：</div><div><asp:TextBox ID="txtCreatedTime" runat="server" Enabled="False"></asp:TextBox></div><div></div>
                 </li>
                 <li>
-                    <div>状态：</div><div><asp:TextBox ID="txtStatusCode" runat="server"></asp:TextBox></div><div></div>
+                    <div>状态：</div><div>
+                    <asp:DropDownList ID="ddlStatusCode" runat="server">
+                        <asp:ListItem Value="1">启用</asp:ListItem>
+                        <asp:ListItem Value="2">已删除</asp:ListItem>
+                        <asp:ListItem Value="3">禁用</asp:ListItem>
+                    </asp:DropDownList>
+                    </div><div></div>
                 </li>
                 <li>
                     <div>描述：</div><div><asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox></div><div></div>

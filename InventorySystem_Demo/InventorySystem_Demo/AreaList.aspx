@@ -17,7 +17,7 @@
         </div>
         <div>
             <div>
-
+                <asp:Button ID="BtnAdd" runat="server" Text="添加" OnClick="BtnAdd_Click" />
             </div>
         </div>
         <div>
@@ -44,7 +44,7 @@
                         <asp:BoundField DataField="CreatedByName" HeaderText="CreatedByName" SortExpression="CreatedByName" Visible="False" />
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <asp:LinkButton ID="lkbDelete" runat="server" CommandName="MyDelete">删除</asp:LinkButton>
+                                <asp:LinkButton ID="lkbDelete" runat="server" CommandName="MyDelete" OnClientClick="return confirm('是否删除？')">删除</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

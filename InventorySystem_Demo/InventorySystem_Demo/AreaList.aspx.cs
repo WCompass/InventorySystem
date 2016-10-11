@@ -35,15 +35,15 @@ namespace InventorySystem_Demo
         public void GetNull(DataTable dt)
         {
             int columnCount = dt.Columns.Count;
-            //if (columnCount==0)
-            //{
+            if (columnCount==0)
+            {
                 GridView1.Rows[0].Cells.Clear();
                 GridView1.Rows[0].Cells.Add(new TableCell());
                 GridView1.Rows[0].Cells[0].ColumnSpan = columnCount;
                 GridView1.Rows[0].Cells[0].Text = "没有记录";
                 GridView1.Rows[0].Cells[0].Style.Add("text-align", "center");
                 GridView1.Rows[0].Cells[0].Style.Add("color", "red"); 
-            //}
+            }
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -53,8 +53,9 @@ namespace InventorySystem_Demo
             int AID = Convert.ToInt32(GridView1.DataKeys[ID].Value);//获取区域ID
             if (e.CommandName== "Profile")
             {
-                Session["AID"] = AID;
-                Response.Redirect("~/AreaProfile.aspx");
+                Response.Redirect("AreaProfile.aspx?AreaId=" + GridView1.DataKeys[ID].Value.ToString());
+                //Session["AID"] = AID;
+                //Response.Redirect("~/AreaProfile.aspx");
             }
             if (e.CommandName=="MyDelete")
             {
@@ -62,6 +63,11 @@ namespace InventorySystem_Demo
                 BaseDAL.DBHelper.Update("update TF_Area set StatusCode=2 where AreaId=@id", p);
                 Bind();
             }
+        }
+
+        protected void BtnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/NewArea.aspx");
         }
     }
 }
