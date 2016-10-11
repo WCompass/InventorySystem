@@ -42,22 +42,22 @@
   <ItemGroup>
     <Reference Include="Edward.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\DLL\Edward.BLL.dll</HintPath>
+      <HintPath>G:\d33\Edward.BLL.dll</HintPath>
     </Reference>
     <Reference Include="Edward.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\DLL\Edward.DAL.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Tencent Files\947390399\FileRecv\Edward.DAL.dll</HintPath>
     </Reference>
     <Reference Include="Edward.DBHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\DLL\Edward.DBHelper.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Tencent Files\947390399\FileRecv\Edward.DBHelper.dll</HintPath>
     </Reference>
     <Reference Include="Edward.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\DLL\Edward.Framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Tencent Files\947390399\FileRecv\Edward.Framework.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\..\..\..\Desktop\学习资料\TestProject\TestProject\TestProject\bin\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\..\Documents\Tencent Files\947390399\FileRecv\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -175,6 +175,9 @@
     <Folder Include="Scripts\common\" />
     <Folder Include="Scripts\lib\" />
     <Folder Include="Styles\lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
