@@ -52,10 +52,10 @@ namespace InventorySystem_Demo
         {
             string Code = txtCode.Text.Trim();
             string Name = txtName.Text.Trim();
-            //string Level = txtLevel.Text.Trim();
-            int Level = int.Parse(ddlLevel.SelectedValue);
-            //string Owner = txtOwner.Text.Trim();
-            int Owner=int.Parse(ddlOwner.SelectedValue);
+            string Level = txtLevel.Text.Trim();
+            //int Level = int.Parse(ddlLevel.SelectedValue);
+            string Owner = txtOwner.Text.Trim();
+            //int Owner=int.Parse(ddlOwner.SelectedValue);
             string time = DateTime.Now.ToString();
 
             string Description = txtDescription.Text.Trim();
