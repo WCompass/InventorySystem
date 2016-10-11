@@ -16,12 +16,8 @@
                 <dt>物品名称：<asp:TextBox ID="txtName" runat="server"></asp:TextBox></dt>
                 <dt>物品类目：<asp:DropDownList ID="ddlCategoryId" runat="server"></asp:DropDownList></dt>
                 <dt>物品价格：<asp:TextBox ID="txtPrice" runat="server"></asp:TextBox></dt>
-                <dt>描述：<asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox></dt>
-                <dt>物品状态：<asp:DropDownList ID="ddlStatus" runat="server">
-                    <asp:ListItem Value="1">启用</asp:ListItem>
-                    <asp:ListItem Value="2">已删除</asp:ListItem>
-                    <asp:ListItem Value="3">禁用</asp:ListItem>
-                    </asp:DropDownList></dt>
+                <dt>物品描述：<asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox></dt>
+                <dt>物品状态：<asp:DropDownList ID="ddlStatus" runat="server"></asp:DropDownList></dt>
                 <dt>创建时间：<asp:TextBox ID="txtCreatedTime" runat="server" Enabled="False"></asp:TextBox></dt>
                 <dt>创建人：<asp:TextBox ID="txtCreatedBy" runat="server" Enabled="False"></asp:TextBox></dt>
                 <dt>

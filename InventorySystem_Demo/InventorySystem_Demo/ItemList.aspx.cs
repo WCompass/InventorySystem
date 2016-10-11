@@ -27,7 +27,6 @@ namespace InventorySystem_Demo
             DataTable dt = BaseDAL.DBHelper.GetList(sql);
             GridView1.DataSource = dt;
             GridView1.DataBind();
-            
         }
 
         protected void lbAdd_Click(object sender, EventArgs e)
