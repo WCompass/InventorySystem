@@ -8,18 +8,26 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+<form id="form1" runat="server">
     <div>
         <div>
-
+            <asp:Button ID="btnSubmt" runat="server" OnClick="btnSubmt_Click" Text="保存" />
+            <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="取消" />
         </div>
         <div>
-
-        </div>
-        <div>
-
+                <div>区域编号：</div><div><asp:TextBox ID="txtCode" runat="server"></asp:TextBox></div>
+                <div>区域名称：</div><div><asp:TextBox ID="txtName" runat="server"></asp:TextBox></div>
+                <div>区域顺序：</div><div><asp:TextBox ID="txtLevel" runat="server"></asp:TextBox>
+                <asp:DropDownList ID="ddlLevel" runat="server">
+                </asp:DropDownList>
+                </div>
+                <div>区域负责人：</div><div><asp:TextBox ID="txtOwner" runat="server"></asp:TextBox>
+                <asp:DropDownList ID="ddlOwner" runat="server">
+                </asp:DropDownList>
+                </div>
+                <div>描述：</div><div><asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox></div>
         </div>
     </div>
-    </form>
+</form>
 </body>
 </html>
