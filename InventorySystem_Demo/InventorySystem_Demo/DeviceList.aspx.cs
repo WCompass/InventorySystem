@@ -30,7 +30,7 @@ namespace InventorySystem_Demo
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            string id=GridView1.DataKeys[e.RowIndex].Value.ToString();
+            string id = GridView1.DataKeys[e.RowIndex].Value.ToString();
             string sqlStr = "update TF_Device Set StatusCode = 2 where DeviceId='" + id + "'";
             BaseDAL.DBHelper.Delete(sqlStr.ToString());
             bind();
@@ -46,6 +46,18 @@ namespace InventorySystem_Demo
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("NewDevice.aspx");
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GridViewRow gvr = (GridViewRow)((LinkButton)(e.CommandSource)).Parent.Parent;//获取父本实例化
+            int ID = gvr.RowIndex;//获取行的ID;
+            int AID = Convert.ToInt32(GridView1.DataKeys[ID].Value);//获取区域ID
+            if (e.CommandName == "Profile")
+            {
+                Response.Redirect("DeviceProfile.aspx?DeviceId=" + GridView1.DataKeys[ID].Value.ToString());
+            }
+            
         }
     }
 }
