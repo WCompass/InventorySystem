@@ -18,11 +18,13 @@
         <div>
             <div>
                 <asp:Button ID="BtnAdd" runat="server" Text="添加" OnClick="BtnAdd_Click" />
+                <asp:Button ID="BtnExel" runat="server" Text="导出" OnClick="BtnExel_Click" />
             </div>
         </div>
         <div>
             <div>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="AreaId" OnRowCommand="GridView1_RowCommand" EmptyDataText="暂无数据" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
+
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="AreaId" ForeColor="Black" GridLines="Vertical" EmptyDataText="暂无数据" OnRowCommand="GridView1_RowCommand">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="AreaId" HeaderText="AreaId" ReadOnly="True" SortExpression="AreaId" Visible="False" />
@@ -38,15 +40,15 @@
                         <asp:BoundField DataField="Level" HeaderText="Level" SortExpression="Level" />
                         <asp:BoundField DataField="Owner" HeaderText="Owner" SortExpression="Owner" Visible="False" />
                         <asp:BoundField DataField="OwnerName" HeaderText="OwnerName" SortExpression="OwnerName" />
+                        <asp:BoundField DataField="StatusCodeText" HeaderText="StatusCodeText" SortExpression="StatusCodeText" />
                         <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" Visible="False" />
                         <asp:BoundField DataField="CreatedTime" HeaderText="CreatedTime" SortExpression="CreatedTime" Visible="False" />
                         <asp:BoundField DataField="CreatedBy" HeaderText="CreatedBy" SortExpression="CreatedBy" Visible="False" />
                         <asp:BoundField DataField="StatusCode" HeaderText="StatusCode" SortExpression="StatusCode" Visible="False" />
                         <asp:BoundField DataField="CreatedByName" HeaderText="CreatedByName" SortExpression="CreatedByName" Visible="False" />
-                        <asp:BoundField DataField="StatusCodeText" HeaderText="StatusCodeText" SortExpression="StatusCodeText" />
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <asp:LinkButton ID="lkbDelete" runat="server" CommandName="MyDelete" OnClientClick="return confirm('是否删除？')">删除</asp:LinkButton>
+                                <asp:LinkButton ID="lkbDelete" runat="server" OnClientClick="return confirm(&quot;是否删除？&quot;)" CommandName="MyDelete">删除</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

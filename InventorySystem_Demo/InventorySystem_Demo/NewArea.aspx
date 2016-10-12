@@ -18,10 +18,8 @@
                 <div>区域编号：</div><div><asp:TextBox ID="txtCode" runat="server"></asp:TextBox></div>
                 <div>区域名称：</div><div><asp:TextBox ID="txtName" runat="server"></asp:TextBox></div>
                 <div>区域顺序：</div><div><asp:TextBox ID="txtLevel" runat="server"></asp:TextBox>
-                <asp:DropDownList ID="ddlLevel" runat="server">
-                </asp:DropDownList>
                 </div>
-                <div>区域负责人：</div><div><asp:TextBox ID="txtOwner" runat="server"></asp:TextBox>
+                <div>区域负责人：</div><div>
                 <asp:DropDownList ID="ddlOwner" runat="server">
                 </asp:DropDownList>
                 </div>

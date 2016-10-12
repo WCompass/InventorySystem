@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>F:\DLL\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="Edward.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>G:\d33\Edward.BLL.dll</HintPath>
@@ -195,6 +198,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Excel\" />
     <Folder Include="Images\" />
     <Folder Include="Scripts\common\" />
     <Folder Include="Scripts\lib\" />

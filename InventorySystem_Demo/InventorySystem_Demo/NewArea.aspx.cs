@@ -20,23 +20,12 @@ namespace InventorySystem_Demo
             if (!IsPostBack)
             {
                 Bind();
-                BindLevel();
                 BindOwner();
             }
         }
         protected void Bind()
         {
             
-        }
-        protected void BindLevel()
-        {
-            string sql = "select Level,Code from TF_Category";
-            DataTable AreaId = BaseDAL.DBHelper.GetList(sql);
-            ddlLevel.DataSource = AreaId;
-            ddlLevel.DataTextField = "Level";
-            ddlLevel.DataValueField = "Code";
-            ddlLevel.DataBind();
-            ddlLevel.Items.Insert(0, new ListItem(""));
         }
         protected void BindOwner()
         {
@@ -54,8 +43,8 @@ namespace InventorySystem_Demo
             string Name = txtName.Text.Trim();
             string Level = txtLevel.Text.Trim();
             //int Level = int.Parse(ddlLevel.SelectedValue);
-            string Owner = txtOwner.Text.Trim();
-            //int Owner=int.Parse(ddlOwner.SelectedValue);
+            //string Owner = txtOwner.Text.Trim();
+            int Owner=int.Parse(ddlOwner.SelectedValue);
             string time = DateTime.Now.ToString();
 
             string Description = txtDescription.Text.Trim();
