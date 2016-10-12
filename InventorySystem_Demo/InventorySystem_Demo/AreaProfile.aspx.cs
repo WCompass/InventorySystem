@@ -19,7 +19,7 @@ namespace InventorySystem_Demo
         {
             if (!IsPostBack)
             {
-                Bind();
+                BindArea();
                 BindLevel();
                 BindOwner();
                 BindStatusCode();
@@ -30,13 +30,33 @@ namespace InventorySystem_Demo
         {
             Response.Redirect("~/AreaList.aspx");
         }
-        protected void Bind()
+        public void Bind()
         {
-            string AreaId = Request.QueryString["AreaId"];
-            string sql = "select * from Areas where AreaId=@id";
-            SqlParameter p = new SqlParameter("@id", AreaId);
-            DataTable dt = BaseDAL.DBHelper.GetList(sql, p);
-            if (dt.Rows.Count>0)
+            DataTable dt = GetAreaId();
+            string Name = dt.Rows[0]["Name"].ToString();
+            string sqlDevice = "select Name,IMEI,AreaIdName,StatusCodeText from Devices where Name='"+Name+"'";
+            DataTable dtDevice = BaseDAL.DBHelper.GetList(sqlDevice);
+            GridView1.DataSource = dtDevice;
+            GridView1.DataBind();
+            GetNull(dt);
+        }
+        public void GetNull(DataTable dt)
+        {
+            int columnCount = dt.Columns.Count;
+            if (columnCount <= 0)
+            {
+                GridView1.Rows[0].Cells.Clear();
+                GridView1.Rows[0].Cells.Add(new TableCell());
+                GridView1.Rows[0].Cells[0].ColumnSpan = columnCount;
+                GridView1.Rows[0].Cells[0].Text = "没有记录";
+                GridView1.Rows[0].Cells[0].Style.Add("text-align", "center");
+                GridView1.Rows[0].Cells[0].Style.Add("color", "red");
+            }
+        }
+        protected void BindArea()
+        {
+            DataTable dt = GetAreaId();
+            if (dt.Rows.Count > 0)
             {
                 txtCode.Text = dt.Rows[0]["Code"].ToString();
                 txtName.Text = dt.Rows[0]["Name"].ToString();
@@ -48,6 +68,16 @@ namespace InventorySystem_Demo
                 txtDescription.Text = dt.Rows[0]["Description"].ToString();
             }
         }
+
+        private DataTable GetAreaId()
+        {
+            string AreaId = Request.QueryString["AreaId"];
+            string sql = "select * from Areas where AreaId=@id";
+            SqlParameter p = new SqlParameter("@id", AreaId);
+            DataTable dt = BaseDAL.DBHelper.GetList(sql, p);
+            return dt;
+        }
+
         protected void BindLevel()
         {
             string sql = "select Level,Code from TF_Category";
@@ -107,6 +137,25 @@ namespace InventorySystem_Demo
             else
             {
                 Response.Write("<script>alert('修改失败!');</script>");
+            }
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GridViewRow gvr = (GridViewRow)((LinkButton)(e.CommandSource)).Parent.Parent;//获取父本实例化
+            int ID = gvr.RowIndex;//获取行的ID;
+            int AID = Convert.ToInt32(GridView1.DataKeys[ID].Value);//获取区域ID
+            if (e.CommandName == "Profile")
+            {
+                Response.Redirect("AreaProfile.aspx?AreaId=" + GridView1.DataKeys[ID].Value.ToString());
+                //Session["AID"] = AID;
+                //Response.Redirect("~/AreaProfile.aspx");
+            }
+            if (e.CommandName == "MyDelete")
+            {
+                SqlParameter[] p = new SqlParameter[] { new SqlParameter("@id", AID) };
+                BaseDAL.DBHelper.Update("update TF_Area set StatusCode=2 where AreaId=@id", p);
+                //BindArea();
             }
         }
     }
