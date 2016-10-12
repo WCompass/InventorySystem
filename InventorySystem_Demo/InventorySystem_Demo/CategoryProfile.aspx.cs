@@ -53,13 +53,24 @@ namespace InventorySystem_Demo
             string CategoryId = Request.QueryString["CategoryId"];
             string Code = txtCode.Text.Trim();
             string Name = txtName.Text.Trim();
-            int Level = int.Parse(txtLevel.Text.Trim());
+            string Level = txtLevel.Text.Trim();
             string Description = txtDescription.Text.Trim();
             int CreatedBy = 1;
             int StatusCode = 1;
 
-            string sqlAdd = "Update TF_Category set Code=@Code,Name=@Name,Level=@Level,Description=@Description,StatusCode=@StatusCode where CategoryId=@id";
-            SqlParameter[] param = new SqlParameter[] {
+            if (Level == "")
+            {
+                Level = "100";
+            }
+            //判断是否为空
+            if (Code == "" || Name == "")
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('有必填项未填！')", true);
+            }
+            else
+            {
+                string sqlAdd = "Update TF_Category set Code=@Code,Name=@Name,Level=@Level,Description=@Description,StatusCode=@StatusCode where CategoryId=@id";
+                SqlParameter[] param = new SqlParameter[] {
                 new SqlParameter("@id",CategoryId),
                 new SqlParameter("@Code",Code),
                 new SqlParameter("@Name",Name),
@@ -69,13 +80,14 @@ namespace InventorySystem_Demo
                 new SqlParameter("@StatusCode",StatusCode)
             };
 
-            if (BaseDAL.DBHelper.Insert(sqlAdd, param) > 0)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Success", "alert('修改成功！');window.location.href='./CategoryList.aspx'", true);
-            }
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('修改失败！')", true);
+                if (BaseDAL.DBHelper.Insert(sqlAdd, param) > 0)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Success", "alert('修改成功！');window.location.href='./CategoryList.aspx'", true);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('修改失败！')", true);
+                }
             }
         }
 

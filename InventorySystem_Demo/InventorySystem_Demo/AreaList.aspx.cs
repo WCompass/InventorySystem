@@ -34,7 +34,7 @@ namespace InventorySystem_Demo
         public void GetNull(DataTable dt)
         {
             int columnCount = dt.Columns.Count;
-            if (columnCount==0)
+            if (columnCount<=0)
             {
                 GridView1.Rows[0].Cells.Clear();
                 GridView1.Rows[0].Cells.Add(new TableCell());
@@ -53,6 +53,7 @@ namespace InventorySystem_Demo
             if (e.CommandName== "Profile")
             {
                 Response.Redirect("AreaProfile.aspx?AreaId=" + GridView1.DataKeys[ID].Value.ToString());
+                //Response.Redirect("AreaProfile.aspx?Name=" + GridView1.SelectedIndex[]);
                 //Session["AID"] = AID;
                 //Response.Redirect("~/AreaProfile.aspx");
             }
