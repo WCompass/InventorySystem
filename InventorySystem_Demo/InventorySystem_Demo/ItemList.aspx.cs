@@ -15,18 +15,27 @@ namespace InventorySystem_Demo
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+            WebPaging.sqlTotalCount = "Select count(ItemId) from Items";
+            WebPaging.sqlStringPath = "ItemList.aspx";  
             if (!IsPostBack)
             {
                 Bind();
-            }            
-		}
+            } 
+        }
 
         protected void Bind()
         {
-            string sql = "Select ItemId,Code,Name,CategoryName,Price,StatusCodeText from Items";
-            DataTable dt = BaseDAL.DBHelper.GetList(sql);
+            string ShowLeft = ((WebPaging.PageSize) * ((WebPaging.curPage)-1)).ToString();
+            string ShowRight = ((WebPaging.PageSize) * (WebPaging.curPage)).ToString();
+            string sqlShow = "with showCount as(Select ItemId,Code,Name,CategoryName,Price,StatusCodeText,row_number()over(order by ItemId) as show FROM Items) select* from showCount where show > @ShowLeft and show<= @ShowRight";
+            SqlParameter[] param = new SqlParameter[]
+                {
+                    new SqlParameter("@ShowLeft",ShowLeft),
+                    new SqlParameter("@ShowRight",ShowRight)
+                };
+            DataTable dt = BaseDAL.DBHelper.GetList(sqlShow,param);
             GridView1.DataSource = dt;
-            GridView1.DataBind();
+            GridView1.DataBind();      
         }
 
         protected void lbAdd_Click(object sender, EventArgs e)

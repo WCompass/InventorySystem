@@ -102,6 +102,7 @@
     <Content Include="NewDevice.aspx" />
     <Content Include="NewItem.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebPaging.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AreaList.aspx.cs">
@@ -196,6 +197,13 @@
       <DependentUpon>NewItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPaging.ascx.cs">
+      <DependentUpon>WebPaging.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPaging.ascx.designer.cs">
+      <DependentUpon>WebPaging.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Excel\" />
