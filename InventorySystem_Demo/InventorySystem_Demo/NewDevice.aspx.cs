@@ -45,6 +45,7 @@ namespace InventorySystem_Demo
             if (BaseDAL.DBHelper.Insert(sqlstr, param) > 0)
             {
                 Response.Write("<script>alert('添加成功！')</script>");
+                Response.Redirect("DeviceList.aspx");
             }
             else
             {

@@ -20,7 +20,7 @@ namespace InventorySystem_Demo
             if (!IsPostBack)
             {
                 Bind();
-                BindLevel();
+                BindArea();
                 BindOwner();
                 BindStatusCode();
             }
@@ -30,33 +30,49 @@ namespace InventorySystem_Demo
         {
             Response.Redirect("~/AreaList.aspx");
         }
-        protected void Bind()
+        /// <summary>
+        /// 绑定数据源
+        /// </summary>
+        public void Bind()
+        {
+            string AreaId = Request.QueryString["AreaId"];
+            SqlParameter p = new SqlParameter("@ids", AreaId);
+            string sqlDevice = "select DeviceId,Name,IMEI,AreaIdName,StatusCodeText from Devices where AreaId=@ids and StatusCode=1";
+            DataTable dtDevice = BaseDAL.DBHelper.GetList(sqlDevice,p);
+            GridView1.DataSource = dtDevice;
+            GridView1.DataBind();
+            GetNull(dtDevice);
+        }
+        public void GetNull(DataTable dtDevice)
+        {
+            int columnCount = dtDevice.Columns.Count;
+            if (columnCount <= 0)
+            {
+                GridView1.Rows[0].Cells.Clear();
+                GridView1.Rows[0].Cells.Add(new TableCell());
+                GridView1.Rows[0].Cells[0].ColumnSpan = columnCount;
+                GridView1.Rows[0].Cells[0].Text = "没有记录";
+                GridView1.Rows[0].Cells[0].Style.Add("text-align", "center");
+                GridView1.Rows[0].Cells[0].Style.Add("color", "red");
+            }
+        }
+        protected void BindArea()
         {
             string AreaId = Request.QueryString["AreaId"];
             string sql = "select * from Areas where AreaId=@id";
             SqlParameter p = new SqlParameter("@id", AreaId);
             DataTable dt = BaseDAL.DBHelper.GetList(sql, p);
-            if (dt.Rows.Count>0)
+            if (dt.Rows.Count > 0)
             {
                 txtCode.Text = dt.Rows[0]["Code"].ToString();
                 txtName.Text = dt.Rows[0]["Name"].ToString();
                 txtLevel.Text = dt.Rows[0]["Level"].ToString();
-                txtOwner.Text = dt.Rows[0]["Owner"].ToString();
+                ddlOwner.SelectedValue = dt.Rows[0]["Owner"].ToString();
                 txtCreatedBy.Text = dt.Rows[0]["CreatedBy"].ToString();
                 txtCreatedTime.Text = dt.Rows[0]["CreatedTime"].ToString();
                 ddlStatusCode.SelectedValue = dt.Rows[0]["StatusCode"].ToString();
                 txtDescription.Text = dt.Rows[0]["Description"].ToString();
             }
-        }
-        protected void BindLevel()
-        {
-            string sql = "select Level,Code from TF_Category";
-            DataTable AreaId = BaseDAL.DBHelper.GetList(sql);
-            ddlLevel.DataSource = AreaId;
-            ddlLevel.DataTextField = "Level";
-            ddlLevel.DataValueField = "Code";
-            ddlLevel.DataBind();
-            ddlLevel.Items.Insert(0, new ListItem(""));
         }
         protected void BindOwner()
         {
@@ -83,9 +99,7 @@ namespace InventorySystem_Demo
             string Code = txtCode.Text.Trim();
             string Name = txtName.Text.Trim();
             string Level = txtLevel.Text.Trim();
-            //int Level = int.Parse(ddlLevel.SelectedValue);
-            string Owner = txtOwner.Text.Trim();
-            //int Owner=int.Parse(ddlOwner.SelectedValue);
+            int Owner=int.Parse(ddlOwner.SelectedValue);
             int StatusCode = int.Parse(ddlStatusCode.SelectedValue);
             string Description = txtDescription.Text.Trim();
 
@@ -107,6 +121,23 @@ namespace InventorySystem_Demo
             else
             {
                 Response.Write("<script>alert('修改失败!');</script>");
+            }
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GridViewRow gvr = (GridViewRow)((LinkButton)(e.CommandSource)).Parent.Parent;//获取父本实例化
+            int ID = gvr.RowIndex;//获取行的ID;
+            int AID = Convert.ToInt32(GridView1.DataKeys[ID].Value);//获取区域ID
+            if (e.CommandName == "Profile")
+            {
+                Response.Redirect("DeviceProfile.aspx?DeviceId=" + GridView1.DataKeys[ID].Value.ToString());
+            }
+            if (e.CommandName == "MyDelete")
+            {
+                SqlParameter[] p = new SqlParameter[] { new SqlParameter("@id", AID) };
+                BaseDAL.DBHelper.Update("update TF_Device set StatusCode=2 where DeviceId=@id", p);
+                Bind();
             }
         }
     }
