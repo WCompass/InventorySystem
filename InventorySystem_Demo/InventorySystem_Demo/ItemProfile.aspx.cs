@@ -8,8 +8,6 @@ using System.Web.UI.WebControls;
 using Edward.DAL;
 using Edward.DBHelper;
 using System.Data.SqlClient;
-using Edward.DAL;
-using Edward.DBHelper;
 
 namespace InventorySystem_Demo
 {

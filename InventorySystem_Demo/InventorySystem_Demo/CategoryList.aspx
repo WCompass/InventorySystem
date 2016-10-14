@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryList.aspx.cs" Inherits="InventorySystem_Demo.CategoryList" %>
 
+<%@ Register Src="~/WebPaging.ascx" TagPrefix="uc1" TagName="WebPaging" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,6 +43,7 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
         </div>
+        <uc1:WebPaging runat="server" ID="WebPaging" />
     </form>
 </body>
 </html>

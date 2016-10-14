@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Edward.DAL;
-using Edward.DBHelper;
+using System.Text.RegularExpressions;
 
 namespace InventorySystem_Demo
 {
@@ -35,7 +31,14 @@ namespace InventorySystem_Demo
         protected void BindTotalCount()
         {
             string MaxCount = BaseDAL.DBHelper.GetScalar(sqlTotalCount);
-            TotalCount = Convert.ToInt32(MaxCount);
+            if(!String.IsNullOrEmpty(MaxCount))
+            {
+                TotalCount = Convert.ToInt32(MaxCount);
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('数据读取失败，请刷新！')", true);
+            }
         }
 
         /// <summary>
@@ -60,21 +63,22 @@ namespace InventorySystem_Demo
         /// </summary>
         protected void BindControls()
         {
-            if(curPage==1)
+            if((curPage==1)&&(curPage==PageCount))
             {
-                lbFirst.Enabled = false;
+                lbUp.Enabled = false;
+                lbDown.Enabled = false;
+            }
+            else if(curPage==1)
+            {
                 lbUp.Enabled = false;
             }
             else if(curPage==PageCount)
             {
-                lbLast.Enabled = false;
                 lbDown.Enabled = false;
             }
             else
             {
-                lbFirst.Enabled = true;
                 lbUp.Enabled = true;
-                lbLast.Enabled = true;
                 lbDown.Enabled = true;
             }
             lblRecord.Text = TotalCount.ToString();
@@ -132,22 +136,30 @@ namespace InventorySystem_Demo
         protected void btnGo_Click(object sender, EventArgs e)
         {
             string PageGo = txtPage.Text.Trim();
+            string RegularNumber = "^([1-9]d*)$";
             if ((PageGo == ""))
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('为输入跳转页数！')", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('请输入跳转页数！')", true);
             }
             else
             {
-                if ((Convert.ToInt32(PageGo) < 1) || (Convert.ToInt32(PageGo) > PageCount))
+                if (Regex.IsMatch(PageGo, RegularNumber))
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('查无此页！')", true);
+                    if ((Convert.ToInt32(PageGo) < 1) || (Convert.ToInt32(PageGo) > PageCount))
+                    {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('查无此页！')", true);
 
+                    }
+                    else
+                    {
+                        curPage = Convert.ToInt32(PageGo);
+                        PagePaging();
+                        BindControls();
+                    }
                 }
                 else
                 {
-                    curPage = Convert.ToInt32(PageGo);
-                    PagePaging();
-                    BindControls();            
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Fail", "alert('请输入正确的跳转页数！')", true);
                 }
             }
         }
