@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WebPaging.ascx.cs" Inherits="InventorySystem_Demo.WebPaging" %>
-<table cellpadding="0" cellspacing="0" border="0" style="text-align: center;">
+<table border="0" style="text-align: center;">
     <tr>
         <td style="height: 2px;"></td>
     </tr>
