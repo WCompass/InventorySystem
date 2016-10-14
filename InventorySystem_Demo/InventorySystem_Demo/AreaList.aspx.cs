@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using Aspose.Cells;
 using Edward.DAL;
-using Edward.BLL;
-using Edward.DBHelper;
-using Edward.Framework;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using Aspose.Cells;
+using System.Web.UI.WebControls;
 
 namespace InventorySystem_Demo
 {
@@ -23,6 +16,7 @@ namespace InventorySystem_Demo
             {
                 Bind();
             }
+            
         }
         public void Bind()
         {
@@ -56,6 +50,7 @@ namespace InventorySystem_Demo
             string title = "";
             FileStream fs = new FileStream(file, FileMode.OpenOrCreate);
             StreamWriter sw = new StreamWriter(new BufferedStream(fs), System.Text.Encoding.Default);
+            #region 1
             for (int i = 0; i < table.Columns.Count; i++)
             {
                 title += table.Columns[i].ColumnName + "\t"; //栏位：自动跳到下一单元格
@@ -72,10 +67,9 @@ namespace InventorySystem_Demo
                 line = line.Substring(0, line.Length - 1) + "\n";
                 sw.Write(line);
             }
-            
+            #endregion
             sw.Close();
             fs.Close();
-
         }
         /// <summary> 
         /// 导出数据到本地 
@@ -224,6 +218,7 @@ namespace InventorySystem_Demo
             GridViewRow gvr = (GridViewRow)((LinkButton)(e.CommandSource)).Parent.Parent;//获取父本实例化
             int ID = gvr.RowIndex;//获取行的ID;
             int AID = Convert.ToInt32(GridView1.DataKeys[ID].Value);//获取区域ID
+            Session["AreaId"] = ID;
             if (e.CommandName == "Profile")
             {
                 Response.Redirect("AreaProfile.aspx?AreaId=" + GridView1.DataKeys[ID].Value.ToString());
@@ -246,7 +241,12 @@ namespace InventorySystem_Demo
             //DataTable dt = BaseDAL.DBHelper.GetList(sql);
             //GridView1.DataSource = dt;
             //GridView1.DataBind();
-            //dataTableToCsv((DataTable)this.GridView1.DataSource, @"F:\Images\1.xlsx"); //调用函数
+            //DateTime Today = DateTime.Now;
+            //string day = Today.ToString("yyyyMMddHHmmss");
+            //dataTableToCsv((DataTable)this.GridView1.DataSource, @"/" + day + ".xls"); //调用函数
+            //Response.Redirect("./" + day + ".xls");
+            //OutFileToDisk(dt, "区域表", Server.MapPath("/") + @"/" + day + ".xls");
+
             //System.Diagnostics.Process.Start(@"F:\Images\1.xlsx");  //打开excel文件
             //try
             //{
@@ -260,22 +260,37 @@ namespace InventorySystem_Demo
             #endregion
 
             #region 方法二
-            DataTable dt = new DataTable();
-            dt.Columns.Add("name");
-            dt.Columns.Add("sex");
-            DataRow dr = dt.NewRow();
-            dr["name"] = "名称1";
-            dr["sex"] = "性别1";
-            dt.Rows.Add(dr);
+            //DataTable dt = this.GridView1.DataSource as DataTable;
+            //string sql = "select Code as 区域编号,Name as 区域名称,Level as 区域等级,OwnerName as 负责人,StatusCodeText as 状态 from Areas where StatusCode=1";
+            //DataTable dt = BaseDAL.DBHelper.GetList(sql);
+            //GridView1.DataSource = dt;
+            //DataRow dr = dt.NewRow();
+            //dr["name"] = "名称1";
+            //dr["sex"] = "性别1";
+            //dt.Rows.Add(dr);
 
-            DataRow dr1 = dt.NewRow();
-            dr1["name"] = "名称2";
-            dr1["sex"] = "性别2";
-            dt.Rows.Add(dr1);
-            
-            OutFileToDisk(dt, "测试标题", Server.MapPath("/")+@"/测试.xls");
-            Response.Redirect("./测试.xls");
+            //DataRow dr1 = dt.NewRow();
+            //dr1["name"] = "名称2";
+            //dr1["sex"] = "性别2";
+            //dt.Rows.Add(dr1);
+            //DateTime time = new DateTime().ToString("yyyyMMddHHmmssfff");
+            DataTable dt = (DataTable)GridView1.DataSource;
+            GridView1.DataSource = dt;
+            DateTime Today = DateTime.Now;
+            string day = Today.ToString("yyyyMMddHHmmss");
+            OutFileToDisk(dt, "区域表", Server.MapPath("/") + @"/" + day + ".xls");
+            Response.Redirect("./" + day + ".xls");
+            if (this.Session["AreaId"] == null)
+            {
+                System.IO.Directory.Delete(@"/" + day + ".xls");
+            }
             #endregion
+
+            #region 方法三
+            //Workbook wb = new Workbook();
+            //wb.Save(Response, HttpUtility.UrlEncode(filename,System.Text.Encoding.UTF8) + ".xls", ContentDisposition.Attachment, new XlsSaveOptions(SaveFormat.Excel97To2003));
+            #endregion
+
         }
     }
 }

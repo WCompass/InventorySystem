@@ -23,7 +23,6 @@
         </div>
         <div>
             <div>
-
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="AreaId" ForeColor="Black" GridLines="Vertical" EmptyDataText="暂无数据" OnRowCommand="GridView1_RowCommand">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
@@ -63,6 +62,17 @@
                     <SortedDescendingHeaderStyle BackColor="#575357" />
                 </asp:GridView>
 
+            </div>
+            <div>
+                <asp:LinkButton ID="lkbFristPage" runat="server">[首页]</asp:LinkButton>
+                <asp:LinkButton ID="lkbUpPage" runat="server">[上一页]</asp:LinkButton>
+                <asp:LinkButton ID="lkbDownPage" runat="server">[下一页]</asp:LinkButton>
+                <asp:LinkButton ID="lkbEndPage" runat="server">[末页]</asp:LinkButton>
+                [总共<asp:Label ID="lblAll" runat="server"></asp:Label>
+                页][页次<asp:Label ID="lblAllPage" runat="server"></asp:Label>
+                /<asp:Label ID="lblNowPage" runat="server"></asp:Label>]
+                第<asp:TextBox ID="txtPage" runat="server"></asp:TextBox>
+                页<asp:Button ID="btnSkip" runat="server" Text="跳转" />
             </div>
         </div>
     </div>

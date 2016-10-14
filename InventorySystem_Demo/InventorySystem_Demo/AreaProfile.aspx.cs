@@ -38,7 +38,7 @@ namespace InventorySystem_Demo
             string AreaId = Request.QueryString["AreaId"];
             SqlParameter p = new SqlParameter("@ids", AreaId);
             string sqlDevice = "select DeviceId,Name,IMEI,AreaIdName,StatusCodeText from Devices where AreaId=@ids and StatusCode=1";
-            DataTable dtDevice = BaseDAL.DBHelper.GetList(sqlDevice,p);
+            DataTable dtDevice = BaseDAL.DBHelper.GetList(sqlDevice, p);
             GridView1.DataSource = dtDevice;
             GridView1.DataBind();
             GetNull(dtDevice);
@@ -76,7 +76,7 @@ namespace InventorySystem_Demo
         }
         protected void BindOwner()
         {
-            string sql = "select Name,Code from TF_User";
+            string sql = "select * from TF_User";
             DataTable UserId = BaseDAL.DBHelper.GetList(sql);
             ddlOwner.DataSource = UserId;
             ddlOwner.DataTextField = "Name";
@@ -123,7 +123,6 @@ namespace InventorySystem_Demo
                 Response.Write("<script>alert('修改失败!');</script>");
             }
         }
-
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             GridViewRow gvr = (GridViewRow)((LinkButton)(e.CommandSource)).Parent.Parent;//获取父本实例化
