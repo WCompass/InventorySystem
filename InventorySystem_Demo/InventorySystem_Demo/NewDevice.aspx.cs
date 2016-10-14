@@ -44,8 +44,16 @@ namespace InventorySystem_Demo
             };
             if (BaseDAL.DBHelper.Insert(sqlstr, param) > 0)
             {
-                Response.Write("<script>alert('添加成功！')</script>");
-                Response.Redirect("DeviceList.aspx");
+                if(name=="")
+                {
+                    Response.Write("<script>alert('设备名不能为空')</script>");
+                    return;
+                }
+                else
+                {
+                    Response.Write("<script>alert('添加成功！')</script>");
+                    return;
+                }
             }
             else
             {

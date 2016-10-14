@@ -57,7 +57,6 @@ namespace InventorySystem_Demo
             {
                 Response.Redirect("DeviceProfile.aspx?DeviceId=" + GridView1.DataKeys[ID].Value.ToString());
             }
-            
         }
     }
 }
