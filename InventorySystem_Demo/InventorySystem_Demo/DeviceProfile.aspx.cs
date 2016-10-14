@@ -31,9 +31,10 @@ namespace InventorySystem_Demo
                     txtCreatedTime.Text = dt.Rows[0]["CreatedTime"].ToString();
                     txtcreateBy.Text = dt.Rows[0]["CreatedBy"].ToString();
                 }
+                bindAreaId();
+                bindStatusCode();
             }
-            bindAreaId();
-            bindStatusCode();
+            
         }
         public void bindAreaId()
         {
