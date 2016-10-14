@@ -60,6 +60,23 @@ namespace InventorySystem_Demo
         /// </summary>
         protected void BindControls()
         {
+            if(curPage==1)
+            {
+                lbFirst.Enabled = false;
+                lbUp.Enabled = false;
+            }
+            else if(curPage==PageCount)
+            {
+                lbLast.Enabled = false;
+                lbDown.Enabled = false;
+            }
+            else
+            {
+                lbFirst.Enabled = true;
+                lbUp.Enabled = true;
+                lbLast.Enabled = true;
+                lbDown.Enabled = true;
+            }
             lblRecord.Text = TotalCount.ToString();
             lblPageTotal.Text = PageCount.ToString();
             lblPage.Text = curPage.ToString();
@@ -67,7 +84,7 @@ namespace InventorySystem_Demo
 
         protected void PagePaging()
         {
-            Response.Redirect("./" + sqlStringPath + "/curPage=" + curPage);
+            Response.Redirect(sqlStringPath + "?curPage=" + curPage);
         }
 
         protected void lbFirst_Click(object sender, EventArgs e)
