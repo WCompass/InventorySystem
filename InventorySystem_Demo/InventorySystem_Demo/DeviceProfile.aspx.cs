@@ -12,7 +12,7 @@ namespace InventorySystem_Demo
 {
     public partial class DeviceProfile : System.Web.UI.Page
     {
-        static int DeviceId = 0;//先定义一个全局变量
+        static int DeviceId = 0;//全局变量
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
